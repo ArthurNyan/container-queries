@@ -1,0 +1,150 @@
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Контейнер для карточек */
+.products-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 16px;
+    flex: 1 0 auto;
+}
+
+/* Общие стили для карточки */
+.product-card {
+    container-type: inline-size;
+    container-name: product-card;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 16px;
+    max-width: 450px;
+    height: max-content;
+}
+
+.product-card__image {
+    width: 100%;
+    height: auto;
+}
+
+.product-card__content {
+    padding: 8px 0;
+}
+
+.product-card__title {
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+}
+
+.product-card__description {
+    font-size: 1rem;
+    color: #666;
+}
+
+.product-card__button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-card__button:hover {
+    background-color: #0056b3;
+}
+
+/* Контейнерный запрос для изменения макета при ширине карточки > 300px */
+@container product-card (min-width: 300px) {
+    .product-card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .color-box {
+        width: 100%;
+        height: 500px;
+    }
+
+    .product-card__image {
+        width: 150px;
+        height: auto;
+    }
+
+    .product-card__content {
+        padding-left: 16px;
+    }
+
+    .product-card__title {
+        font-size: 1.25rem;
+    }
+
+    .product-card__description {
+        font-size: 0.9rem;
+    }
+}
+
+.box-container {
+    container-type: inline-size;
+    container-name: color-box;
+    width: 100%;
+    margin-top: 20px;
+    flex: 0 0 auto;
+}
+
+.color-box {
+    width: 100%;
+    background-color: #2020202c;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@container color-box (width < 1800px) {
+    .color-box {
+        background-color: #202020b7;
+    }
+
+    h3 {
+        color: #4bff84;
+    }
+}
+
+@container color-box (width < 1400px) {
+    .color-box {
+        background-color: #202020e7;
+    }
+
+    h3 {
+        color: #007bff;
+    }
+}
+
+@container color-box (width < 1200px) {
+    .color-box {
+        background-color: #20202045;
+    }
+
+    h3 {
+        color: #885f2a;
+    }
+}
+
+@container color-box (width < 700px) {
+    .color-box {
+        background-color: #202020b7;
+    }
+
+    h3 {
+        color: antiquewhite;
+    }
+}

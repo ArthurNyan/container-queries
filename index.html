@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Cards</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="products-container" class="products-container"></div>
+    <div class="box-container">
+      <div class="color-box">
+        <h3>Текст</h3>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          title: "Product 1",
+          description: "Short description for Product 1",
+        },
+        {
+          title: "Product 2",
+          description: "Short description for Product 2",
+        },
+        {
+          title: "Product 3",
+          description: "Short description for Product 3",
+        },
+        {
+          title: "Product 4",
+          description: "Short description for Product 4",
+        },
+      ];
+
+      const container = document.getElementById("products-container");
+
+      products.forEach((product) => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+        <img src="./product.jpg" alt="${product.title}" class="product-card__image">
+        <div class="product-card__content">
+          <h2 class="product-card__title">${product.title}</h2>
+          <p class="product-card__description">${product.description}</p>
+          <button class="product-card__button">Buy Now</button>
+        </div>
+      `;
+
+        container.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
